@@ -10,3 +10,4 @@ dist/
 # Generated data and training artifacts
 data/
 runs/
+*_artifacts.zip
