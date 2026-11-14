@@ -251,6 +251,12 @@ Yes — you can (and for `small` you probably should) train on Kaggle GPUs inste
 - Rough expectations (estimates, not yet measured): tiny in well under an hour; small in ~2–4 hours on T4 fp16. Kaggle gives you a session limit (~12 h on GPU) and a weekly GPU quota; if the session dies, resume exactly where it stopped: `python -m cronlm.cli train --config configs/small.yaml --device cuda --amp fp16 --resume runs/small/last.pt`.
 - When it's done, download `runs/small/best.pt` **and** `runs/small/vocab.json` (inference loads the vocab from next to the checkpoint), then run eval locally: `python -m cronlm.cli eval --ckpt /path/to/best.pt --split test`.
 - Kaggle needs internet enabled to clone the repo (or use the "Add data" button to upload a repo zip instead).
+- The repo ships two ready-to-run notebooks: `kaggle_train.ipynb` (proven: it produced the 100%-val small checkpoint) and `kaggle_train_online.ipynb` (targets the combo-holdout gap; see below). Use **Save & Run All (Commit)** — it finishes on Kaggle's servers even with the browser closed.
+
+### Online run: targets the combo-holdout gap (90.68% → ?)
+
+The measured combo-holdout score (90.68%) says the fixed-list model memorized (hour, minute) pairs instead of fully learning the rules of time. The PRD's fix is to train with fresh generator examples every step (`--online`) so memorizing is impossible. `kaggle_train_online.ipynb` + `configs/small_online.yaml` implement it: fresh examples every step forever, identical fixed val/test files, early-stop on 3 consecutive full-val 100% evals, then all four splits are scored. Honest expectations: test/val stay near 100%; combo is expected to land in the upper 90s but is not guaranteed — the point of the run is to measure it, not promise it.
+
 
 ## Honest limits
 

@@ -1,0 +1,19 @@
+name: small_online
+# Same hyperparameters as small.yaml but with a longer horizon: --online
+# training sees fresh generator examples forever, so memorization is impossible.
+# Early stop fires when full val exact is 100% for 3 consecutive evals.
+d_model: 256
+n_layer: 6
+n_head: 8
+ff_dim: 1024
+block_size: 160
+steps: 100000
+peak_lr: 1.0e-3
+warmup_steps: 500
+batch_size: 256
+eval_interval: 2000
+log_interval: 100
+eval_subset: 5000
+grad_accum_steps: 1
+dropout: 0.0
+seed: 1337
