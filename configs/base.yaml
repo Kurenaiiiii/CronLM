@@ -1,0 +1,16 @@
+name: base
+d_model: 384
+n_layer: 8
+n_head: 6
+ff_dim: 1536
+block_size: 160
+steps: 100000
+peak_lr: 6.0e-4
+warmup_steps: 500
+batch_size: 256
+eval_interval: 2000
+log_interval: 100
+eval_subset: 5000
+grad_accum_steps: 1
+dropout: 0.0
+seed: 1337

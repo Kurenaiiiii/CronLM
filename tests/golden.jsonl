@@ -1,0 +1,200 @@
+{"phrase": "at 9am", "cron": "0 9 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 9:30am", "cron": "30 9 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 9:30 am", "cron": "30 9 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 5pm", "cron": "0 17 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 5:05 pm", "cron": "5 17 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 14:05", "cron": "5 14 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 09:30", "cron": "30 9 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 23:59", "cron": "59 23 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at midnight", "cron": "0 0 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at noon", "cron": "0 12 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 12am", "cron": "0 0 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 12pm", "cron": "0 12 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 12:30am", "cron": "30 0 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 12:30pm", "cron": "30 12 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 9 o'clock", "cron": "0 9 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 9:00am", "cron": "0 9 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 7:45pm", "cron": "45 19 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 6:15", "cron": "15 6 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 05:05", "cron": "5 5 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 1am", "cron": "0 1 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 11pm", "cron": "0 23 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 8:59pm", "cron": "59 20 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 12:00", "cron": "0 12 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at half past 3pm", "cron": "30 15 * * *", "level": null, "template_id": "golden"}
+{"phrase": "half past 8am", "cron": "30 8 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at quarter past 8am", "cron": "15 8 * * *", "level": null, "template_id": "golden"}
+{"phrase": "quarter past 6pm", "cron": "15 18 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at quarter to 6pm", "cron": "45 17 * * *", "level": null, "template_id": "golden"}
+{"phrase": "quarter to 12pm", "cron": "45 11 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at quarter to 12am", "cron": "45 23 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at quarter past 12am", "cron": "15 0 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at half past 11pm", "cron": "30 23 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at a quarter to 9pm", "cron": "45 20 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at quarter of 5pm", "cron": "45 16 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 45 minutes before 6pm", "cron": "45 17 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at fifteen to 7am", "cron": "45 6 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at half past 12pm", "cron": "30 12 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at half 6am", "cron": "30 6 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at thirty minutes past 2pm", "cron": "30 14 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every minute", "cron": "* * * * *", "level": null, "template_id": "golden"}
+{"phrase": "each minute", "cron": "* * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every minute of the day", "cron": "* * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every sixty seconds", "cron": "* * * * *", "level": null, "template_id": "golden"}
+{"phrase": "minutely", "cron": "* * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 2 minutes", "cron": "*/2 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 3 minutes", "cron": "*/3 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 4 minutes", "cron": "*/4 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 5 minutes", "cron": "*/5 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 6 minutes", "cron": "*/6 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 10 minutes", "cron": "*/10 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 12 minutes", "cron": "*/12 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 15 minutes", "cron": "*/15 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 20 minutes", "cron": "*/20 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 30 minutes", "cron": "*/30 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 15 mins", "cron": "*/15 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 10 min", "cron": "*/10 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "each 5 minutes", "cron": "*/5 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "once every 5 minutes", "cron": "*/5 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every hour", "cron": "0 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "hourly", "cron": "0 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every hour on the hour", "cron": "0 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "once an hour", "cron": "0 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 2 hours", "cron": "0 */2 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 3 hours", "cron": "0 */3 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 4 hours", "cron": "0 */4 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 6 hours", "cron": "0 */6 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 8 hours", "cron": "0 */8 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 12 hours", "cron": "0 */12 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 2 hrs", "cron": "0 */2 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 2 hours on weekdays", "cron": "0 */2 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "every 4 hours on weekends", "cron": "0 */4 * * 0,6", "level": null, "template_id": "golden"}
+{"phrase": "at 15 minutes past every hour", "cron": "15 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "at minute 45 of every hour", "cron": "45 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 30 minutes past each hour", "cron": "30 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 5 past every hour", "cron": "5 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every hour at 20 minutes past", "cron": "20 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 59 minutes after every hour", "cron": "59 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 1 minutes past every hour", "cron": "1 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 10 mins past every hour", "cron": "10 * * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 15 minutes between 9am and 5pm", "cron": "*/15 9-17 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 30 minutes from 8am to 6pm", "cron": "*/30 8-18 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 5 minutes between 6am and 10am", "cron": "*/5 6-10 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 10 minutes between 7am and 9am", "cron": "*/10 7-9 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 20 minutes between 12pm and 2pm", "cron": "*/20 12-14 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 15 minutes from 9am until 5pm", "cron": "*/15 9-17 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 2 minutes between 1am and 4am", "cron": "*/2 1-4 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 12 minutes between 10am and 12pm", "cron": "*/12 10-12 * * *", "level": null, "template_id": "golden"}
+{"phrase": "each 30 minutes between 9am and 5pm", "cron": "*/30 9-17 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every 4 minutes between midnight and 6am", "cron": "*/4 0-6 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 9am and 5pm", "cron": "0 9,17 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 8:30am, 12:30pm and 6:30pm", "cron": "30 8,12,18 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 7am and 7pm", "cron": "0 7,19 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 12am and 12pm", "cron": "0 */12 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 9:15am and 4:15pm", "cron": "15 9,16 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 6am, 12pm and 6pm", "cron": "0 6,12,18 * * *", "level": null, "template_id": "golden"}
+{"phrase": "at 10:05am and 2:05pm and 6:05pm", "cron": "5 10,14,18 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every weekday at 9am", "cron": "0 9 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "on weekdays at 9am", "cron": "0 9 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "monday to friday at 9am", "cron": "0 9 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "monday through friday at 9am", "cron": "0 9 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "mon-fri at 9am", "cron": "0 9 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "every weekday at 9:30am", "cron": "30 9 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "on weekends at 8am", "cron": "0 8 * * 0,6", "level": null, "template_id": "golden"}
+{"phrase": "every weekend at 10am", "cron": "0 10 * * 0,6", "level": null, "template_id": "golden"}
+{"phrase": "saturday and sunday at 11am", "cron": "0 11 * * 0,6", "level": null, "template_id": "golden"}
+{"phrase": "sat and sun at noon", "cron": "0 12 * * 0,6", "level": null, "template_id": "golden"}
+{"phrase": "every weekday at midnight", "cron": "0 0 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "weekdays at 6pm", "cron": "0 18 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "every weekday at 12am", "cron": "0 0 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "every weekend at 9am", "cron": "0 9 * * 0,6", "level": null, "template_id": "golden"}
+{"phrase": "saturday and sunday at 10:30pm", "cron": "30 22 * * 0,6", "level": null, "template_id": "golden"}
+{"phrase": "on weekdays at 7:45am", "cron": "45 7 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "every monday at 9am", "cron": "0 9 * * 1", "level": null, "template_id": "golden"}
+{"phrase": "on tuesdays and thursdays at 6pm", "cron": "0 18 * * 2,4", "level": null, "template_id": "golden"}
+{"phrase": "every mon, wed and fri at 7am", "cron": "0 7 * * 1,3,5", "level": null, "template_id": "golden"}
+{"phrase": "on mondays and wednesdays at 9am", "cron": "0 9 * * 1,3", "level": null, "template_id": "golden"}
+{"phrase": "each friday at 5pm", "cron": "0 17 * * 5", "level": null, "template_id": "golden"}
+{"phrase": "every sunday at midnight", "cron": "0 0 * * 0", "level": null, "template_id": "golden"}
+{"phrase": "every saturday at 8am", "cron": "0 8 * * 6", "level": null, "template_id": "golden"}
+{"phrase": "on monday at 9am", "cron": "0 9 * * 1", "level": null, "template_id": "golden"}
+{"phrase": "every tuesday at 2:30pm", "cron": "30 14 * * 2", "level": null, "template_id": "golden"}
+{"phrase": "every mon and tue at 9am", "cron": "0 9 * * 1,2", "level": null, "template_id": "golden"}
+{"phrase": "on sunday and saturday at 9am", "cron": "0 9 * * 0,6", "level": null, "template_id": "golden"}
+{"phrase": "every thu at 6:15pm", "cron": "15 18 * * 4", "level": null, "template_id": "golden"}
+{"phrase": "on wed and sat at 10am", "cron": "0 10 * * 3,6", "level": null, "template_id": "golden"}
+{"phrase": "every monday, wednesday and friday at 8:05am", "cron": "5 8 * * 1,3,5", "level": null, "template_id": "golden"}
+{"phrase": "each saturday at 9:45pm", "cron": "45 21 * * 6", "level": null, "template_id": "golden"}
+{"phrase": "on tue, thu and sat at 7:30am", "cron": "30 7 * * 2,4,6", "level": null, "template_id": "golden"}
+{"phrase": "monday through wednesday at 7:15am", "cron": "15 7 * * 1-3", "level": null, "template_id": "golden"}
+{"phrase": "tue to thu at 8:30am", "cron": "30 8 * * 2-4", "level": null, "template_id": "golden"}
+{"phrase": "wednesday through friday at 9am", "cron": "0 9 * * 3-5", "level": null, "template_id": "golden"}
+{"phrase": "mon to fri at 9am", "cron": "0 9 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "sunday through tuesday at 9am", "cron": "0 9 * * 0-2", "level": null, "template_id": "golden"}
+{"phrase": "thursday through saturday at 11am", "cron": "0 11 * * 4-6", "level": null, "template_id": "golden"}
+{"phrase": "mon to wed at 6am", "cron": "0 6 * * 1-3", "level": null, "template_id": "golden"}
+{"phrase": "fri to sat at 10am", "cron": "0 10 * * 5,6", "level": null, "template_id": "golden"}
+{"phrase": "tuesday to saturday at 8am", "cron": "0 8 * * 2-6", "level": null, "template_id": "golden"}
+{"phrase": "wednesday to thursday at 9am", "cron": "0 9 * * 3,4", "level": null, "template_id": "golden"}
+{"phrase": "friday through sunday at 8pm", "cron": "0 20 * * 0,5,6", "level": null, "template_id": "golden"}
+{"phrase": "on the 1st at 9am", "cron": "0 9 1 * *", "level": null, "template_id": "golden"}
+{"phrase": "on the 15th at 9am", "cron": "0 9 15 * *", "level": null, "template_id": "golden"}
+{"phrase": "on the 1st and 15th at 9am", "cron": "0 9 1,15 * *", "level": null, "template_id": "golden"}
+{"phrase": "on the 1st, 15th and 28th at 9am", "cron": "0 9 1,15,28 * *", "level": null, "template_id": "golden"}
+{"phrase": "on the 21st at 9am", "cron": "0 9 21 * *", "level": null, "template_id": "golden"}
+{"phrase": "on the 22nd at 9am", "cron": "0 9 22 * *", "level": null, "template_id": "golden"}
+{"phrase": "on the 23rd at 9am", "cron": "0 9 23 * *", "level": null, "template_id": "golden"}
+{"phrase": "on the 11th at 9am", "cron": "0 9 11 * *", "level": null, "template_id": "golden"}
+{"phrase": "on the 12th at 9am", "cron": "0 9 12 * *", "level": null, "template_id": "golden"}
+{"phrase": "on the 13th at 9am", "cron": "0 9 13 * *", "level": null, "template_id": "golden"}
+{"phrase": "on the 31st at 9am", "cron": "0 9 31 * *", "level": null, "template_id": "golden"}
+{"phrase": "first of every month at 9am", "cron": "0 9 1 * *", "level": null, "template_id": "golden"}
+{"phrase": "first of the month at midnight", "cron": "0 0 1 * *", "level": null, "template_id": "golden"}
+{"phrase": "on the 2nd at 9am", "cron": "0 9 2 * *", "level": null, "template_id": "golden"}
+{"phrase": "on day 10 of the month at 9am", "cron": "0 9 10 * *", "level": null, "template_id": "golden"}
+{"phrase": "on the 30th at 9am", "cron": "0 9 30 * *", "level": null, "template_id": "golden"}
+{"phrase": "on the 3rd at 9am", "cron": "0 9 3 * *", "level": null, "template_id": "golden"}
+{"phrase": "in march at 9am", "cron": "0 9 * 3 *", "level": null, "template_id": "golden"}
+{"phrase": "every march at 9am", "cron": "0 9 * 3 *", "level": null, "template_id": "golden"}
+{"phrase": "in march and june at 9am", "cron": "0 9 * 3,6 *", "level": null, "template_id": "golden"}
+{"phrase": "in jan, apr and jul at 9am", "cron": "0 9 * 1,4,7 *", "level": null, "template_id": "golden"}
+{"phrase": "from june to august at 9am", "cron": "0 9 * 6-8 *", "level": null, "template_id": "golden"}
+{"phrase": "june through august at 9am", "cron": "0 9 * 6-8 *", "level": null, "template_id": "golden"}
+{"phrase": "every 3 months at 9am", "cron": "0 9 1 */3 *", "level": null, "template_id": "golden"}
+{"phrase": "quarterly at 9am", "cron": "0 9 1 */3 *", "level": null, "template_id": "golden"}
+{"phrase": "quarterly", "cron": "0 0 1 */3 *", "level": null, "template_id": "golden"}
+{"phrase": "every 2 months at 9am", "cron": "0 9 1 */2 *", "level": null, "template_id": "golden"}
+{"phrase": "every 6 months at 9am", "cron": "0 9 1 */6 *", "level": null, "template_id": "golden"}
+{"phrase": "every 4 months at 9am", "cron": "0 9 1 */4 *", "level": null, "template_id": "golden"}
+{"phrase": "every month on the 15th at 9am", "cron": "0 9 15 * *", "level": null, "template_id": "golden"}
+{"phrase": "monthly on the 1st at 9am", "cron": "0 9 1 * *", "level": null, "template_id": "golden"}
+{"phrase": "monthly", "cron": "0 0 1 * *", "level": null, "template_id": "golden"}
+{"phrase": "in december at 9am", "cron": "0 9 * 12 *", "level": null, "template_id": "golden"}
+{"phrase": "in february at 9am", "cron": "0 9 * 2 *", "level": null, "template_id": "golden"}
+{"phrase": "on december 25th at 9am", "cron": "0 9 25 12 *", "level": null, "template_id": "golden"}
+{"phrase": "on the 4th of july at 10am", "cron": "0 10 4 7 *", "level": null, "template_id": "golden"}
+{"phrase": "on march 1st at 9am", "cron": "0 9 1 3 *", "level": null, "template_id": "golden"}
+{"phrase": "on the 31st of january at 9am", "cron": "0 9 31 1 *", "level": null, "template_id": "golden"}
+{"phrase": "in march and june on mondays at 9am", "cron": "0 9 * 3,6 1", "level": null, "template_id": "golden"}
+{"phrase": "in june on weekdays at 9am", "cron": "0 9 * 6 1-5", "level": null, "template_id": "golden"}
+{"phrase": "run at 9am every monday", "cron": "0 9 * * 1", "level": null, "template_id": "golden"}
+{"phrase": "schedule every friday at 6pm", "cron": "0 18 * * 5", "level": null, "template_id": "golden"}
+{"phrase": "please run this at 9am every monday", "cron": "0 9 * * 1", "level": null, "template_id": "golden"}
+{"phrase": "fire at midnight every day", "cron": "0 0 * * *", "level": null, "template_id": "golden"}
+{"phrase": "execute at noon", "cron": "0 12 * * *", "level": null, "template_id": "golden"}
+{"phrase": "do it at 7am every weekday", "cron": "0 7 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "trigger at 18:00 every day", "cron": "0 18 * * *", "level": null, "template_id": "golden"}
+{"phrase": "every weekday at 9am.", "cron": "0 9 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "every weekday at 9am,", "cron": "0 9 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "at 9am, every weekday", "cron": "0 9 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "at 9am in june every monday", "cron": "0 9 * 6 1", "level": null, "template_id": "golden"}
+{"phrase": "every monday at 9am in june", "cron": "0 9 * 6 1", "level": null, "template_id": "golden"}
+{"phrase": "in june every monday at 9am", "cron": "0 9 * 6 1", "level": null, "template_id": "golden"}
+{"phrase": "every friday at 6:30pm", "cron": "30 18 * * 5", "level": null, "template_id": "golden"}
+{"phrase": "at 5:55am every weekday", "cron": "55 5 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "every 15 minutes between 9am and 5pm on weekdays", "cron": "*/15 9-17 * * 1-5", "level": null, "template_id": "golden"}
+{"phrase": "every 15 minutes between 9am and 5pm on the 1st", "cron": "*/15 9-17 1 * *", "level": null, "template_id": "golden"}
+{"phrase": "on the 15th at noon", "cron": "0 12 15 * *", "level": null, "template_id": "golden"}
+{"phrase": "on december 25th at midnight", "cron": "0 0 25 12 *", "level": null, "template_id": "golden"}
+{"phrase": "every weekday at 9:30am in june and july", "cron": "30 9 * 6,7 1-5", "level": null, "template_id": "golden"}
+{"phrase": "at half past 9am every friday", "cron": "30 9 * * 5", "level": null, "template_id": "golden"}
