@@ -19,7 +19,8 @@ The point of the project is learning: tokenization, transformer internals, the t
 7. [Testing](#testing)
 8. [Results](#results)
 9. [Kaggle alternative](#kaggle-alternative)
-10. [Honest limits](#honest-limits)
+10. [GGUF export (llama.cpp)](#gguf-export-llamacpp)
+11. [Honest limits](#honest-limits)
 
 ## What the system is made of
 
@@ -219,6 +220,17 @@ Real numbers from this machine (GTX 1650 Mobile, 4 GB). Everything here is measu
 | small | 4,792,320 | 60,000 | pending | GTX 1650 | pending | pending | pending |
 
 Per-level accuracy and timings for real runs belong in this table once the full runs complete (see PRD Section 14, M8). `tiny` is the first run; `small` is the main model — on this laptop expect overnight, and use `--resume`.
+
+## GGUF export (llama.cpp)
+
+The tiny checkpoint is exported as a GPT-2-family GGUF at `exports/cronlm-tiny-f32.gguf` (3.3 MB), verified to be a bit-exact replica of our PyTorch model: greedy decoding on 150 val prompts matches our predictions 150/150 (see `verify_gguf.py`). Recipe and notes in `scripts/gguf/README.md`. Usage:
+
+```bash
+llama-completion -m exports/cronlm-tiny-f32.gguf -p "every weekday at 9am<sep>" --temp 0 -c 160
+# -> every weekday at 9am0 9 * * 1-5 [end of text]
+```
+
+Caveats, honestly: llama.cpp's GPT-2 path computes tanh-approximation GELU while we trained with erf GELU (a ≤3e-3 drift that did not flip any of the 150 greedy predictions); evaluation was `llama-completion`, not `llama-cli` (chat mode garbles raw completion models); the GGUF carries one deliberately dead merge (`\x7f \x7f`) because llama.cpp requires a non-empty merges list and GGUF forbids empty arrays. The exported checkpoint is the tiny interrupt at step 5,312 (val exact 97.00%), not a 100% model — the small export follows once the Kaggle run's artifacts are available.
 
 ## Kaggle alternative
 
