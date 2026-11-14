@@ -215,22 +215,31 @@ Real numbers from this machine (GTX 1650 Mobile, 4 GB). Everything here is measu
 
 | Model | Params | Steps | Train time | Hardware | Exact match (test) | Semantic | Validity |
 |---|---|---|---|---|---|---|---|
-| tiny (smoke) | 819,968 | 200 | ~10 min on CPU | CPU | smoke checkpoint, not meaningful | — | — |
-| tiny | 819,968 | 30,000 | pending | GTX 1650 | pending | pending | pending |
-| small | 4,792,320 | 60,000 | pending | GTX 1650 | pending | pending | pending |
+| tiny (smoke) | 819,968 | 200 | ~1 min | GTX 1650 (fp32) | smoke checkpoint, not meaningful | smoke | smoke |
+| tiny | 819,968 | interrupted at 5,312 / 30,000 | ~18 min | GTX 1650 (fp32) | val 97.00% (step 4,000) | — | — |
+| small | 4,792,320 | stopped early at 48,000 (early-stop fired; target 60,000) | 132.3 min | Kaggle Tesla T4 (fp16), val exact 100.00% on full 20,000 val | **99.999%** (1 failure, a canonical-format diff semantically equal) | **100.00%** | **100.00%** |
 
-Per-level accuracy and timings for real runs belong in this table once the full runs complete (see PRD Section 14, M8). `tiny` is the first run; `small` is the main model — on this laptop expect overnight, and use `--resume`.
+Small in detail: L1–L5 exact all 100.00% on the 100,000-example test set except L2 99.997% (n=33,392; the single miss). Per-field exact 100.00% everywhere (test). Golden set (hand-written, 200): exact 96.50%, semantic 97.00%, validity 100.00% — PRD's golden-100% criterion not met; failures are the known hard classes (quarter-to hours, a reversed window, dropped Friday in a dom/dow jumpy case, `hourly` defaulting to `*` instead of `0` on month-only phrases).
+
+**Holdouts (measured):**
+
+| Split | n | Exact | Semantic | Validity | Note |
+|---|---|---|---|---|---|
+| combo holdout (unseen (hour, minute) pairs) | 20,000 | **90.68%** | 90.68% | 99.995% | PRD target was "same as test" — NOT met; confirms the model memorized (hour, minute) pairs. The PRD debugging playbook says: train longer, use `--online`, or raise model size. |
+| paraphrase holdout (reserved templates) | 10,000 | **88.97%** | 90.13% | 99.98% | Off-distribution brittleness, reported as the PRD requires. |
+
+Runtime on this machine (GTX 1650): full test eval 100k ≈ 2–4 min, golden ≈ 1 min. `tiny` was deleted locally as redundant after the small run finished (its GGUF remains at `exports/cronlm-tiny-f32.gguf`).
 
 ## GGUF export (llama.cpp)
 
-The tiny checkpoint is exported as a GPT-2-family GGUF at `exports/cronlm-tiny-f32.gguf` (3.3 MB), verified to be a bit-exact replica of our PyTorch model: greedy decoding on 150 val prompts matches our predictions 150/150 (see `verify_gguf.py`). Recipe and notes in `scripts/gguf/README.md`. Usage:
+The final models are exported as GPT-2-family GGUFs in `exports/` (tiny 3.3 MB, small 19 MB). Both are verified bit-exact replicas of their PyTorch models — greedy decoding matches our predictions 150/150 on val prompts (`small`: also 150/150 correct answers; `tiny`: 142/150, matching its own accuracy). Recipe and notes in `scripts/gguf/README.md`. Usage:
 
 ```bash
-llama-completion -m exports/cronlm-tiny-f32.gguf -p "every weekday at 9am<sep>" --temp 0 -c 160
+llama-completion -m exports/cronlm-small-f32.gguf -p "every weekday at 9am<sep>" --temp 0 -c 160
 # -> every weekday at 9am0 9 * * 1-5 [end of text]
 ```
 
-Caveats, honestly: llama.cpp's GPT-2 path computes tanh-approximation GELU while we trained with erf GELU (a ≤3e-3 drift that did not flip any of the 150 greedy predictions); evaluation was `llama-completion`, not `llama-cli` (chat mode garbles raw completion models); the GGUF carries one deliberately dead merge (`\x7f \x7f`) because llama.cpp requires a non-empty merges list and GGUF forbids empty arrays. The exported checkpoint is the tiny interrupt at step 5,312 (val exact 97.00%), not a 100% model — the small export follows once the Kaggle run's artifacts are available.
+Caveats, honestly: llama.cpp's GPT-2 path computes tanh-approximation GELU while we trained with erf GELU (a ≤3e-3 drift that did not flip any of the 150 greedy predictions in either model); evaluation was `llama-completion`, not `llama-cli` (chat mode garbles raw completion models); the GGUFs carry one deliberately dead merge (`\x7f \x7f`) because llama.cpp requires a non-empty merges list and GGUF forbids empty arrays. GGUF weights are f32, not quantized.
 
 ## Kaggle alternative
 

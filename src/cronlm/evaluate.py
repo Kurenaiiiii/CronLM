@@ -170,7 +170,13 @@ def evaluate_checkpoint(ckpt_path, split, data_dir="data", device=None,
             f" validity           {metrics['validity'] * 100:>9.2f}%",
             "-" * 56,
         ]
-        for lvl in sorted(per_level, key=int):
+        def _lvl_key(x):
+            try:
+                return (0, int(x))
+            except (TypeError, ValueError):
+                return (1, 0)
+
+        for lvl in sorted(per_level, key=_lvl_key):
             d = per_level[lvl]
             box.append(f" level {lvl} exact       {d['exact'] * 100:>9.2f}%  (n={d['n']})")
         box.append("-" * 56)

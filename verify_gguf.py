@@ -12,10 +12,11 @@ from cronlm.model import GPT
 from cronlm.tokenizer import Tokenizer
 
 LLAMA = os.environ.get("LLAMA_BIN", "llama-completion")
-GGUF = os.environ.get("GGUF", "exports/cronlm-tiny-f32.gguf")
+GGUF = os.environ.get("GGUF", "exports/cronlm-small-f32.gguf")
+CKPT = os.environ.get("CKPT", "runs/small/best.pt")
 N = 150
 
-ckpt = torch.load("runs/tiny/best.pt", map_location="cpu", weights_only=False)
+ckpt = torch.load(CKPT, map_location="cpu", weights_only=False)
 model = GPT(**{k: v for k, v in ckpt["config"].items() if k != "dropout"}, dropout=0.0)
 model.load_state_dict(ckpt["model"])
 model.eval()
