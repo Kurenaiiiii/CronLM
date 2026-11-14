@@ -11,7 +11,7 @@ sys.path.insert(0, "src")
 from cronlm.model import GPT
 from cronlm.tokenizer import Tokenizer
 
-LLAMA = os.environ.get("LLAMA_BIN", "/tmp/llama.cpp/build/bin/llama-completion")
+LLAMA = os.environ.get("LLAMA_BIN", "llama-completion")
 GGUF = os.environ.get("GGUF", "exports/cronlm-tiny-f32.gguf")
 N = 150
 
