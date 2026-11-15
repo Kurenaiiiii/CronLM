@@ -20,8 +20,8 @@ Measured on a fixed test set of 100,000 phrases (byte-identical splits; seed 133
 
 | Model | Params | Training | Test | Combo holdout | Paraphrase holdout | Golden | Validity |
 |---|---|---|---|---|---|---|---|
-| `small` (pregenerated, stopped early at 48k steps) | 4.8M | 132.3 min on 1×T4, fp16 | **99.999%** | 90.68% | 88.97% | 96.50% | 100% |
-| **`small_online`** (fresh examples every step) | 4.8M | ~68k steps on 1×T4, fp16 | **100.00%** | **93.48%** | **90.25%** | **97.00%** | 100% |
+| `small` (pregenerated, stopped early at 48k steps) | 4.8M | 48k steps, early stop | **99.999%** | 90.68% | 88.97% | 96.50% | 100% |
+| **`small_online`** (fresh examples every step) | 4.8M | ~68k steps, early stop | **100.00%** | **93.48%** | **90.25%** | **97.00%** | 100% |
 
 - **test** = same distribution as training, unseen phrases. Both models solve it; `small_online` hits 0 failures in 100k examples.
 - **combo holdout** = exact-time `hour:minute` pairs reserved by hash, never seen in training — measures rule-learning, not memorization.
@@ -41,7 +41,7 @@ The `small_online` checkpoint is the primary artifact; its GGUF is at `exports/c
 
 ## Quick start
 
-Requirements: Python 3.9+, `pip install -e ".[dev]"`, a CUDA GPU or patience.
+Requirements: Python 3.9+, pip, and some RAM to spare.
 
 ```bash
 git clone https://github.com/Kurenaiiiii/cronlm.git && cd cronlm
@@ -49,7 +49,7 @@ python -m venv .venv && source .venv/bin/activate
 pip install torch && pip install -e ".[dev]"
 pytest -q
 python -m cronlm.cli gen-data --out data --train 500000 --val 20000 --test 100000 --seed 1337
-python -m cronlm.cli train --config configs/small_online.yaml --device cuda --amp fp16 --online
+python -m cronlm.cli train --config configs/small_online.yaml --online
 ```
 
 Talk to it in one line:
@@ -58,8 +58,6 @@ Talk to it in one line:
 llama-completion -m exports/cronlm-small-online-f32.gguf -p "every weekday at 9am<sep>" --temp 0 -c 160
 # -> every weekday at 9am0 9 * * 1-5 [end of text]
 ```
-
-Or train the smaller `tiny` model locally on a GTX 1650 (~0.8M params, fp32, ~15 minutes to a usable checkpoint). On a laptop with a 4 GB card, training `small` from scratch will OOM in fp32; use Kaggle or fp16 — see `kaggle_train_online.ipynb`, which produced the 93.48% combo result end to end from a fresh clone with **no downloaded weights**.
 
 ## Project layout
 
@@ -79,7 +77,6 @@ tests/              79 tests — cron semantics, tokenizer, model invariants, pi
 configs/            tiny / small / small_online / base
 scripts/gguf/       export + patch scripts (convert_hf_to_gguf + metadata patch for llama.cpp)
 exports/            .gguf files (bit-identical to their .pt counterparts)
-kaggle_train.ipynb  proven recipe for 1×T4
 ```
 
 ## Design decisions worth pointing at

@@ -100,8 +100,8 @@ def run_train(args):
             raise RuntimeError("--amp bf16 requires CUDA")
         if not torch.cuda.is_bf16_supported():
             raise RuntimeError(
-                "--amp bf16 requested, but this GPU has no bf16 support "
-                "(the GTX 1650 does not). Use default fp32 or --amp fp16.")
+                "--amp bf16 requested, but this GPU has no bf16 support."
+                "Use default fp32 or --amp fp16.")
     if amp == "fp16" and device != "cuda":
         raise RuntimeError("--amp fp16 requires CUDA")
     use_amp = amp_dtype is not None

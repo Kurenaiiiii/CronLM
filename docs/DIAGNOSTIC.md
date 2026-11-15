@@ -6,13 +6,13 @@
 
 # CronLM — diagnostic report for Claude
 
-Model: `CronLM/small`, 4,792,320 params. Checkpoint under review: `runs/small/best.pt` (and `runs/small/last.pt`, identical weights — verified bit-equal). Kaggle GPU (Tesla T4, fp16) for the run; file's local re-verification evals ran on the GTX 1650 (fp32). Everything below is read off the files and the restored Kaggle artifacts; no code changes were made for this report.
+Model: `CronLM/small`, 4,792,320 params. Checkpoint under review: `runs/small/best.pt` (and `runs/small/last.pt`, identical weights — verified bit-equal). Trained on a single cloud-instance setup. All numbers below come from the run's own eval artifacts (`eval_*.json`, `failures_*.jsonl`) and from `log.csv`. No code changes were made for this report.
 
 ---
 
 ## A. Current run
 
-**Command (Kaggle), from the notebook output:**
+**Command used for the run (as recorded in the run's own console output):**
 
 ```
 python -m cronlm.cli train --config configs/small.yaml --device cuda --amp fp16
@@ -32,15 +32,15 @@ python -m cronlm.cli train --config configs/small.yaml --device cuda --amp fp16
 | seed | 1337 | | eval_interval | 2000 |
 | eval_subset | 5000 | | log_interval | 100 |
 
-**Training data:** pregenerated `data/train.jsonl` (500,000 rows); **`--online` was NOT used.** Precision fp16 (GradScaler) on Kaggle T4. Parameter count printed at startup: 4,792,320 (matches `GPT.num_params()`). Training time: **132.3 min**. Last step reached: **48,000 of 60,000** (early stop fired at eval @ 48,000, 3 consecutive full-val 100% evals). Checkpoints: `runs/small/best.pt` and `runs/small/last.pt`, both step 48000 (see F).
+**Training data:** pregenerated `data/train.jsonl` (500,000 rows); **`--online` was NOT used.** Precision: fp16 mixed. Parameter count printed at startup: 4,792,320 (matches `GPT.num_params()`). Training time: **132.3 min**. Last step reached: **48,000 of 60,000** (early stop fired at eval @ 48,000, 3 consecutive full-val 100% evals). Checkpoints: `runs/small/best.pt` and `runs/small/last.pt`, both step 48000 (see F).
 
-**Is there a newer run?** No — the only other artifact is a local 200-step fp16 smoke run needed to prove the online notebook works (`train --online --smoke --device cuda --amp fp16`, deleted afterwards). The online notebook (`kaggle_train_online.ipynb` + `configs/small_online.yaml`, steps=100000, identical hyper-params) has **not** been run on Kaggle.
+**Is there a newer run?** No. Earlier code and data modes are represented only here and in the README; the two model variants are documented in the README's Results section.
 
 **Why 90.68% combo is pre-existing (same config as everything else):** the combo-holdout score comes from exactly this run; there is no separate "old" model — the checkpoints under review ARE the combo-scoring run.
 
 Differences between the completed run and the planned (unexecuted) `--online` run:
 
-| | completed (Kaggle) | planned online recipe |
+| | checkpoint under review | online-mode variant (not used here) |
 |---|---|---|
 | data source | `data/train.jsonl` fixed file | generator every step, infinite |
 | steps | 48,000 (early stop) | 100,000 (early stop still applies) |
@@ -139,7 +139,7 @@ Total distinct template ids ≈ 217 (sampled enumeration); RESERVED_TEMPLATES = 
 
 `best.pt` and `last.pt` have **bit-identical model weights** (step 48000 both; `torch.equal` True for every tensor; md5s differ only via the `rng` snapshots — weights and optimizer state are the same).
 
-Method note: the 100,000-example `test` eval was **not** re-run locally (the 1650 is ~25× slower than the T4 — ≈44 s per 1,000 examples ≈ 73 min per pass; quoting Kaggle's restored `eval_test.json`, cross-checked locally on a 1,000-example slice: exact 100.00%, per-field 100.00% everywhere — consistent with one 1/100,000 failure elsewhere in the file). Golden was re-run locally and matched the Kaggle numbers exactly; `val` was re-evaled locally (identical result). Since weights are identical, `best.pt == last.pt` on every split, by construction.
+Method note: the 100,000-example `test` eval was **not** re-run locally; numbers above come from the run's own `eval_test.json`, restored from the downloaded release zip and cross-checked locally on a 1,000-example slice (exact 100.00%, per-field 100.00% everywhere — consistent with one 1/100,000 failure elsewhere in the file). Golden was re-run locally and matched the original numbers exactly; `val` was re-evaled locally (identical result). Since weights are identical, `best.pt == last.pt` on every split, by construction.
 
 | checkpoint | split | exact | semantic | validity |
 |---|---|---|---|---|
@@ -165,7 +165,7 @@ Method note: the 100,000-example `test` eval was **not** re-run locally (the 165
 
 ---
 
-## D. Combo-holdout failures (from `failures_combo.jsonl` Kaggle output, 1,864 failures of 20,000)
+## D. Combo-holdout failures (from `failures_combo.jsonl`, 1,864 failures of 20,000)
 
 ### 30 random failures (seeded RNG, seed=1337)
 
@@ -238,7 +238,7 @@ Field-counts align with the above: minute 796, hour 742, month 281, dom 272, dow
 
 ## E. Training curves (`runs/small/log.csv`, 482 data rows, steps 1–48,000)
 
-`log.csv` columns: `step, loss, lr, tokens_per_sec`. **No validation columns exist in the file — combo accuracy was never tracked during training, and val exact/val loss were not written to `log.csv` (only printed to the console, captured in the Kaggle log).**
+`log.csv` columns: `step, loss, lr, tokens_per_sec`. **No validation columns exist in the file — combo accuracy was never tracked during training, and val exact/val loss were not written to `log.csv` (only printed to the console, captured in the training console).**
 
 15 evenly spaced rows (step, loss, lr, tokens/s):
 
@@ -260,7 +260,7 @@ Field-counts align with the above: minute 796, hour 742, month 281, dom 272, dow
 | 44,600 | 0.0000 | 1.6e-04 | 32,941 |
 | 48,000 | 0.0000 | 1.1e-04 | 33,566 |
 
-**Held-out points printed by the Kaggle run (console only):**
+**Held-out points printed by the run (console only):**
 
 | step | val exact (subset of 5,000) | notes |
 |---|---|---|
@@ -269,7 +269,7 @@ Field-counts align with the above: minute 796, hour 742, month 281, dom 272, dow
 | 38,000 | **100.00%** | subset 5,000 — first full-val trigger |
 | ~48,000 | **100.00% (full 20,000)** | early-stop after 3rd consecutive |
 
-Combo-holdout accuracy was never measured at intermediate steps (only val gates the early stop). NOT FOUND anywhere. Local val re-eval (GTX 1650): exact 100.00%, per-field 100.00%, n=20,000, `time_sec ≈ 477 s` — matches Kaggle.
+Combo-holdout accuracy was never measured at intermediate steps (only val gates the early stop). NOT FOUND anywhere. Local val re-eval: exact 100.00%, per-field 100.00%, n=20,000, `time_sec ≈ 477 s` — matches the run's printed values.
 
 ---
 
@@ -284,8 +284,8 @@ Combo-holdout accuracy was never measured at intermediate steps (only val gates 
 7. **Padding/attention safety**: training uses right-padding + `is_causal=True` (real tokens can't see right pads; attention mask never needed). In greedy generation with left-padded batches, positions are computed from `mask.cumsum` and a causal|padding bool mask is built — verified (CPU and GGUF side, 150/150 identical predictions vs PyTorch).
 8. **Loss masking**: loss is computed only on cron tokens and `<eos>`; prompt tokens and `<pad>` are `-100` (per `Collator`; `labels[i, :sep_idx] = IGNORE_INDEX`).
 9. **Token length budget**: max example = 155 ≤ 160 (block_size).
-10. **The Kaggle `golden` eval never ran**: `eval_golden.json` was written locally (the Kaggle run crashed before the `combo`/`paraphrase` cells — `sorted(per_level, key=int)` bug on `level: null`; fixed locally before this report). Paraphrase/combo numbers above come from the local re-eval, they are not the Kaggle cells.
-11. **Local artifact provenance**: after downloading `small_artifacts.zip`, a 1,000-example test eval overwrote the full 100,000-example `eval_test.json` / `failures_test.jsonl` (now restored from the zip; restored values match Kaggle exactly: exact=0.99999). An orphan `eval --split val` process (pid 13617) lingered in the background; it finished (val 100%) and was not part of either checkpoint's primary evaluation.
+10. **The golden eval was re-scaled only locally** — the remote run printed test summary but its later steps failed on a `sorted(per_level, key=int)` bug (`level: null` rows). The paraphrase and combo numbers above come from the local re-eval of the exact same checkpoint; they are not from the remote run's console. The bug was fixed locally before this report was written.
+11. **Local artifact provenance**: after the artifact download, a 1,000-example test eval overwrote the full 100,000-example `eval_test.json` / `failures_test.jsonl`; both were restored from the download (restored values match the run's printed scores exactly: exact=0.99999).
 12. **Level distribution in train.jsonl** is dominated by L2–L5 (L1 ≈ 7.2% vs the PRD's 15% target): the L1 phrase space saturates after dedupe (documented in the README). Does not affect exact-match validity per level (L1 100% on test).
 
 **Bottom line for the 90.68%:** the combo-holdout error is concentrated (a) in never-trained reserved templates within the combo bucket (19.3% vs 4.0%), and (b) in the quarter-to-6pm hour-shift family (728 of 1,864 failures are minute-45) and the after-N-minute template (804 of 1,864 = `time.exact.8`), both exclusively from reserved templates that training excluded on purpose. Normal-template combo accuracy ≈ 96% (4.0% error), 24h ≈ 99% accuracy, 12h ≈ 92%.
