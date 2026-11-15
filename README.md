@@ -44,7 +44,7 @@ The `small_online` checkpoint is the primary artifact; its GGUF is at `exports/c
 Requirements: Python 3.9+, pip, and some RAM to spare.
 
 ```bash
-git clone https://github.com/Kurenaiiiii/cronlm.git && cd cronlm
+git clone https://github.com/Kurenaiiiii/CronLM.git && cd CronLM
 python -m venv .venv && source .venv/bin/activate
 pip install torch && pip install -e ".[dev]"
 pytest -q
