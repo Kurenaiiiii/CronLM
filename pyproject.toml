@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cronlm"
-version = "0.1.0"
+version = "1.0.0"
 description = "Tiny char-level transformer that turns plain English scheduling phrases into 5-field cron expressions."
 readme = "README.md"
 requires-python = ">=3.9"
