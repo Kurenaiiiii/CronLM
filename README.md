@@ -106,4 +106,4 @@ kaggle_train.ipynb  proven recipe for 1×T4
 
 MIT — see [LICENSE](LICENSE).
 
-Built as a from-scratch study in transformer internals, deterministic generation, and evaluation that means something. The PRD it implements is at [PRD.md](PRD.md).
+Built as a from-scratch study in transformer internals, deterministic generation, and evaluation that means something.
